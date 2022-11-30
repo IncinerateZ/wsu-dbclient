@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+    <script
+        src="https://unpkg.com/axios/dist/axios.min.js">axios.defaults.withCredentials = true; axios.defaults.credentials = 'include'</script>
+    <title>Employees</title>
+</head>
+
+<body>
+    <div
+        style="position: absolute; display: flex; justify-content: space-between; width: 30vw; transform: translate(1rem, 1rem); z-index: 999;">
+        <div style="cursor: pointer;" onclick="window.location = '/'">Dashboard</div>
+        <div style="cursor: pointer;" onclick="window.location = '/employees'">Employees</div>
+        <div style="cursor: pointer;" onclick="window.location = '/restock'">Restock</div>
+        <div style="cursor: pointer;"
+            onclick="axios('http://127.0.0.1:3001/logout', {method: 'get', withCredentials: true, credentials: 'include'}).then((res) => {window.location = window.location})">
+            Logout</div>
+    </div>
+    <div class="container" style="transform: translateY(-20%);">
+        <span style="font-size: 4rem;">Employees</span>
+        <div id="products-cols"
+            style="max-height: 70%; overflow-y: auto; width: 900px; background-color: lightgray; border: 1px solid black;">
+            <div style="padding: 5px; display: flex;">
+                <div style="flex:1 1 0px;">id</div>
+                <div style="flex:1 1 0px;">first name</div>
+                <div style="flex:1 1 0px;">last name</div>
+                <div style="flex:2 1 0px;">address</div>
+                <div style="flex:2 1 0px;">email</div>
+                <div style="flex:1 1 0px;">password</div>
+                <div style="flex:1 1 0px;">joined date</div>
+                <div style="flex:1 1 0px; text-align: center;">is admin</div>
+            </div>
+        </div>
+        <div id="products-container"
+            style="max-height: 70%; overflow-y: auto; width: 900px; background-color: lightgray; border: 1px solid black;">
+        </div>
+        <div id="products-pseudo"
+            style="max-height: 70%; overflow-y: auto; width: 900px; background-color: lightgray; border: 1px solid black;">
+            <div style="padding: 5px; display: flex;">
+                <div style="flex:1 1 0px;"></div>
+                <div style="flex:1 1 0px;"><input style="width: 100%;" id="firstname"></div>
+                <div style="flex:1 1 0px;"><input style="width: 100%;" id="lastname"></div>
+                <div style="flex:2 1 0px;"><input style="width: 100%;" id="address"></div>
+                <div style="flex:2 1 0px;"><input style="width: 100%;" id="email"></div>
+                <div style="flex:2 1 0px;"><input style="width: 70%;" id="password"></div>
+                <div style="flex:1 1 0px;"></div>
+                <div style="flex:1 1 0px;"><input style="width: 50%;" id="isAdmin" type="checkbox">
+                </div>
+            </div>
+        </div>
+        <span id="add-out"></span>
+        <div id="products-addbtn"
+            style="font-weight: bold; font-size: 1.3rem; background-color: gray; padding-left: 0.39rem; padding-right: 0.39rem; border: 1px solid black; border-radius: 5px; cursor: pointer; transform: translateX(440px); margin-top: 0.2rem;">
+            +</div>
+    </div>
+</body>
+
+</html>

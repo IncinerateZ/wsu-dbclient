@@ -1,0 +1,28 @@
+body {
+    overflow: hidden;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.login-container .button {
+    width: 10.6rem;
+}
+
+.login-input-container {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 0.5rem;
+    margin-bottom: 0.1rem;
+}
+
+#error_out {
+    color:red;
+}

@@ -1,0 +1,16 @@
+body {
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+
+.none {
+    display: none;
+}

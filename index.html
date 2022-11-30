@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+    <script
+        src="https://unpkg.com/axios/dist/axios.min.js">axios.defaults.withCredentials = true; axios.defaults.credentials = 'include'</script>
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div
+        style="position: absolute; display: flex; justify-content: space-between; width: 30vw; transform: translate(1rem, 1rem); z-index: 999;">
+        <div style="cursor: pointer;" onclick="window.location = '/'">Dashboard</div>
+        <div style="cursor: pointer;" onclick="window.location = '/employees'">Employees</div>
+        <div style="cursor: pointer;" onclick="window.location = '/restock'">Restock</div>
+        <div style="cursor: pointer;"
+            onclick="axios('http://127.0.0.1:3001/logout', {method: 'get', withCredentials: true, credentials: 'include'}).then((res) => {window.location = window.location})">
+            Logout</div>
+    </div>
+    <div class="container" style="transform: translateY(-20%);">
+        <span style="font-size: 4rem;">Products Overview</span>
+        <div><input placeholder="Search Product Name" style="width: 500px; margin-right: 290px;" id="search"></div>
+        <div id="products-cols"
+            style="max-height: 70%; overflow-y: auto; width: 800px; background-color: lightgray; border: 1px solid black;">
+            <div style="padding: 5px; display: flex;">
+                <div style="flex:1 1 0px;">id</div>
+                <div style="flex:3 1 0px;">name</div>
+                <div style="flex:5 1 0px;">description</div>
+                <div style="flex:2 1 0px;">price</div>
+                <div style="flex:1 1 0px;">stock</div>
+            </div>
+        </div>
+        <div id="products-container"
+            style="max-height: 70%; overflow-y: auto; width: 800px; background-color: lightgray; border: 1px solid black;">
+        </div>
+        <div id="products-pseudo"
+            style="max-height: 70%; overflow-y: auto; width: 800px; background-color: lightgray; border: 1px solid black;">
+            <div style="padding: 5px; display: flex;">
+                <div style="flex:1 1 0px;"></div>
+                <div style="flex:3 1 0px;"><input style="width: 100%;" id="name"></div>
+                <div style="flex:5 1 0px;"><input style="width: 100%;" id="description"></div>
+                <div style="flex:2 1 0px;"><input style="width: 50%;" id="price" type="number"></div>
+                <div style="flex:1 1 0px;"><input style="width: 50%;" id="stock" type="number"></div>
+            </div>
+        </div>
+        <span id="add-out"></span>
+        <div id="products-addbtn"
+            style="font-weight: bold; font-size: 1.3rem; background-color: gray; padding-left: 0.39rem; padding-right: 0.39rem; border: 1px solid black; border-radius: 5px; cursor: pointer; transform: translateX(390px); margin-top: 0.2rem;">
+            +</div>
+    </div>
+</body>
+
+</html>
