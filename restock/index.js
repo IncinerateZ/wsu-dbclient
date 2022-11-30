@@ -15,7 +15,7 @@ window.onload = () => {
         eProductsPseudo.className = `${showPseudo ? '' : 'none'}`;
 
         if (!showPseudo) {
-            let cols = ['product_id', 'employee_id', 'supplier_id', 'kg'];
+            let cols = ['supply_id', 'employee_id', 'kg'];
             let q = '?table=restock';
             for (let c of cols) {
                 let v =
@@ -86,13 +86,15 @@ window.onload = () => {
                 }">
                     <span style="flex:1 1 0px;">${e.restock_id}</span>
                     <span style="flex:1 1 0px;">${
-                        data.product[e.product_id].product_name
+                        data.product[data.supply[e.supply_id].product_id]
+                            .product_name
                     }</span>
                     <span style="flex:1 1 0px;">${
                         data.employee[e.employee_id].employee_firstname
                     }</span>
                     <span style="flex:1 1 0px;">${
-                        data.supplier[e.supplier_id].supplier_name
+                        data.supplier[data.supply[e.supply_id].supplier_id]
+                            .supplier_name
                     }</span>
                     <span style="flex:1 1 0px;">${e.restock_kg}</span>
                     <span style="flex:1 1 0px;">${e.restock_date}</span>
@@ -122,7 +124,6 @@ window.onload = () => {
 
             for (let k = 1; k <= Object.keys(data.supplier).length; k++) {
                 let e = data.supplier[k];
-                console.log(e);
                 document.getElementById(
                     'supplier-container',
                 ).innerHTML += `<div style="padding: 5px; display: flex;${
